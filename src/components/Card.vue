@@ -1,14 +1,17 @@
 <script>
 export default{
 props:{
-    
+    value:{
+        type:Number,
+        required: true
+    }
 }
 }
 </script>
 
 <template>
     <div class="card">
-        Card
+        {{ value }}
     </div>
     
 </template>
