@@ -12,8 +12,8 @@
 import Card from './components/Card.vue'
 
 export default{
-  name: 'App'
-  components: {
+  name: 'App',
+  components:{
     Card
   },
   setup () {
@@ -35,7 +35,7 @@ font-family: Arial, Helvetica, sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
-color: chartreuse;
+color: black;
 margin-top: 60px;
 }
 
