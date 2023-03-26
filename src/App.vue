@@ -2,13 +2,19 @@
  <h1>BoalaTDI</h1>
 <br>
 <section class="game-board">
-  <Card v-for="(card,index) in cardList" 
+  <Card 
+  v-for="(card,index) in cardList" 
   :key="'card-${index}'"
-  :value="card"/>
+  :value="card.value"
+  :visible="card.visible"
+  :position="card.position"
+  @select-card="flipCard"
+/>
 </section>
 </template>
 
 <script>
+import { ref } from 'vue'
 import Card from './components/Card.vue'
 
 export default{
@@ -17,16 +23,26 @@ export default{
     Card
   },
   setup () {
-    const cardList = []
+    const cardList = ref([])
 
-    for (let i=0; i<16;i++){
-      cardList.push(i)
+    for (let i = 0; i < 16; i++){
+      cardList.value.push({ 
+        value: i,
+        visible: false,
+        position: i
+    })
     }
+    
+    const flipCard = (payload) => {
+      cardList.value[payload.position].visible = true
+    }
+
     return{
-      cardList
+      cardList,
+      flipCard
     }
   }
-}
+} 
 </script>
 
 <style>
@@ -37,10 +53,6 @@ font-family: Arial, Helvetica, sans-serif;
 text-align: center;
 color: black;
 margin-top: 60px;
-}
-
-.card {
-  border: 5px solid #ccc;
 }
 
 .game-board{
