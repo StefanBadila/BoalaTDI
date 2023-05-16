@@ -67,13 +67,13 @@ export default{
     cardItems.forEach(item => {
       cardList.value.push({
         value: item,
-        visible: true,
+        visible: false,
         position: null,
         matched: false
       })
       cardList.value.push({
         value: item,
-        visible: true,
+        visible: false,
         position: null,
         matched: false
       })
@@ -108,8 +108,9 @@ export default{
         }
         else{
 
-          cardList.value[cardOne.position].matched=false
+          seTimeout(()=>{cardList.value[cardOne.position].matched=false
           cardList.value[cardTwo.position].matched=false
+          }, 2000)
         }
 
 
@@ -145,10 +146,10 @@ margin-top: 60px;
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(4, 60px);
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
   justify-content: center;
   justify-content: center;
   
@@ -156,4 +157,3 @@ margin-top: 60px;
 }
 
 </style>
-dsfsdfsd  fdsfsd
