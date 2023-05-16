@@ -13,7 +13,7 @@
 />
 </section>
 <h2>{{status}}</h2>
-<button @click="shuffleCards">Amestec Tiganesc</button>
+<button @click="restartGame">Amestec Tiganesc</button>
 </template>
 
 <script>
@@ -49,14 +49,43 @@ export default{
       cardList.value= _.shuffle(cardList.value)
     }
 
-    for (let i = 0; i < 16; i++){
-      cardList.value.push({ 
-        value: i,
-        visible:true,
-        position: i,
-        matched: false
-    })
+    const restartGame = () => {
+      shuffleCards()
+      cardList.value = cardList.value.map((card, index) => {
+        return{
+          ...card,
+          matched: false,
+          position: index,
+          visible: false
+        }
+      })
+
     }
+
+    const cardItems = [1,2,3,4,5,6,7,8]
+
+    cardItems.forEach(item => {
+      cardList.value.push({
+        value: item,
+        visible: true,
+        position: null,
+        matched: false
+      })
+      cardList.value.push({
+        value: item,
+        visible: true,
+        position: null,
+        matched: false
+      })
+
+    })
+
+    cardList.value = cardList.value.map((card,index)=> {
+      return{
+        ...card,
+        position: index
+      }
+    })
     
     const flipCard = (payload) => {
       cardList.value[payload.position].visible = true
@@ -74,13 +103,10 @@ export default{
         const cardTwo = currentValue[1]
 
         if(cardOne.faceValue === cardTwo.faceValue){
-            status.value = 'Matched'
-
             cardList.value[cardOne.position].matched=true
             cardList.value[cardTwo.position].matched=true
         }
         else{
-          status.value = 'Missmatch'
 
           cardList.value[cardOne.position].matched=false
           cardList.value[cardTwo.position].matched=false
@@ -100,7 +126,8 @@ export default{
       userSelection,
       status,
       remainingPairs,
-      shuffleCards
+      shuffleCards,
+      restartGame
     }
   }
 } 
@@ -123,11 +150,6 @@ margin-top: 60px;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   justify-content: center;
-  position: fixed;
-  top: 250px;
-  left: 900px;
-  width: 0px
 }
 
 </style>
-dsfsdfsd  fdsfsd
