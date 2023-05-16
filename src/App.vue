@@ -46,7 +46,7 @@ export default{
     })
 
     const shuffleCards = () => {
-      cardList.value= _.shuffle(cardList.value)
+      cardList.value = _.shuffle(cardList.value)
     }
 
     for (let i = 0; i < 16; i++){
@@ -117,17 +117,16 @@ margin-top: 60px;
 }
 
 .game-board{
-  display:grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(4, 60px);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
   justify-content: center;
-  position: fixed;
-  top: 250px;
-  left: 900px;
-  width: 0px
+  justify-content: center;
+  
+ 
 }
 
 </style>
-dsfsdfsd  fdsfsd
+//asdd
