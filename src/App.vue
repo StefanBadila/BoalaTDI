@@ -1,4 +1,5 @@
 <template>
+  <div class=" tot">
  <h1>BoalaTDI</h1>
 <br>
 <section class="game-board">
@@ -12,8 +13,11 @@
   @select-card="flipCard"
 />
 </section>
+<br>
 <h2>{{status}}</h2>
+<br>
 <button @click="restartGame">Amestec Tiganesc</button>
+</div>
 </template>
 
 <script>
@@ -149,19 +153,24 @@ font-family: Arial, Helvetica, sans-serif;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
 color: black;
-margin-top: 60px;
+
+}
+.tot{
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+position: absolute;
+padding: 10px;
+justify-content: center;
 }
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-template-rows: repeat(4, 120px);
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  justify-content: center;
-  justify-content: center;
-  
- 
+
 }
 
 </style>
