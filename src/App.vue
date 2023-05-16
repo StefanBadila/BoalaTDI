@@ -12,11 +12,13 @@
   @select-card="flipCard"
 />
 </section>
-<h1>{{status}}</h1>
+<h2>{{status}}</h2>
+<button @click="shuffleCards">Amestec Tiganesc</button>
 </template>
 
 <script>
-import { ref, watch } from 'vue'
+import _ from 'lodash'
+import { computed , ref, watch } from 'vue'
 import Card from './components/Card.vue'
 
 export default{
@@ -27,12 +29,30 @@ export default{
   setup () {
     const cardList = ref([])
     const userSelection =ref([])
-    const status=ref("")
+
+    const status= computed (() => {
+      if(remainingPairs.value === 0){
+        return `Player wins!`     }
+         else {
+         return `Remaining Pairs: ${remainingPairs.value}`
+      }
+    })
+
+    const remainingPairs = computed(() => {
+      const remainingCards= cardList.value.filter
+      (card => card.matched === false).length
+      
+    return remainingCards / 2
+    })
+
+    const shuffleCards = () => {
+      cardList.value = _.shuffle(cardList.value)
+    }
 
     for (let i = 0; i < 16; i++){
       cardList.value.push({ 
         value: i,
-        visible: false,
+        visible:true,
         position: i,
         matched: false
     })
@@ -61,10 +81,10 @@ export default{
         }
         else{
           status.value = 'Missmatch'
-        }
 
-        cardList.value[cardOne.position].visible = false
-        cardList.value[cardTwo.position].visible = false
+          cardList.value[cardOne.position].matched=false
+          cardList.value[cardTwo.position].matched=false
+        }
 
 
         userSelection.value.length = 0
@@ -78,7 +98,9 @@ export default{
       cardList,
       flipCard,
       userSelection,
-      status
+      status,
+      remainingPairs,
+      shuffleCards
     }
   }
 } 
@@ -95,11 +117,16 @@ margin-top: 60px;
 }
 
 .game-board{
-  display:grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(4, 60px);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
   justify-content: center;
+  justify-content: center;
+  
+ 
 }
+
 </style>
+//asdd
