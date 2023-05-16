@@ -94,23 +94,26 @@
   } 
   </script>
  
-  <style>
-  #app {
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smotthing: grayscale;
-  text-align: center;
-  color: black;
-  margin-top: 60px;
-  }
-  .game-board{
-    display:grid;
-    grid-template-columns: 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px 100px;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
-    justify-content: center;
-    position: fixed;
-   
-  }
-  </style>
+ <style>
+ #app {
+ font-family: Arial, Helvetica, sans-serif;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smotthing: grayscale;
+ text-align: center;
+ color: black;
+ margin-top: 60px;
+ }
+ .game-board{
+   display:grid;
+   grid-template-columns: 100px 100px 100px 100px;
+   grid-template-rows: 100px 100px 100px 100px;
+   grid-column-gap: 30px;
+   grid-row-gap: 30px;
+   justify-content: center;
+   position: fixed;
+   top: 250px;
+   left: 900px;
+   width: 0px
+ }
+ </style>
+ dsfsdfsd  fdsfsd
