@@ -115,6 +115,11 @@ margin-top: 60px;
   grid-template-rows: 100px 100px 100px 100px;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  justify-content: cent2er;
+  justify-content: center;
+  position: fixed;
+  top: 250px;
+  left: 900px;
+  width: 0px
 }
+
 </style>
