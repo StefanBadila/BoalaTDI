@@ -13,9 +13,11 @@
 />
 </section>
 <h2>{{status}}</h2>
+<button @click="shuffleCards">Amestec Tiganesc</button>
 </template>
 
 <script>
+import _ from 'lodash'
 import { computed , ref, watch } from 'vue'
 import Card from './components/Card.vue'
 
@@ -43,10 +45,14 @@ export default{
     return remainingCards / 2
     })
 
+    const shuffleCards = () => {
+      cardList.value= _.shuffle(cardList.value)
+    }
+
     for (let i = 0; i < 16; i++){
       cardList.value.push({ 
-        value: 8,
-        visible: false,
+        value: i,
+        visible:true,
         position: i,
         matched: false
     })
@@ -93,7 +99,8 @@ export default{
       flipCard,
       userSelection,
       status,
-      remainingPairs
+      remainingPairs,
+      shuffleCards
     }
   }
 } 
@@ -123,3 +130,4 @@ margin-top: 60px;
 }
 
 </style>
+dsfsdfsd  fdsfsd
