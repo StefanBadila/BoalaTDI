@@ -1,4 +1,5 @@
 <template>
+  <div class=" tot">
  <h1>BoalaTDI</h1>
 <br>
 <section class="game-board">
@@ -12,8 +13,11 @@
   @select-card="flipCard"
 />
 </section>
+<br>
 <h2>{{status}}</h2>
+<br>
 <button @click="restartGame">Amestec Tiganesc</button>
+</div>
 </template>
 
 <script>
@@ -67,13 +71,13 @@ export default{
     cardItems.forEach(item => {
       cardList.value.push({
         value: item,
-        visible: true,
+        visible: false,
         position: null,
         matched: false
       })
       cardList.value.push({
         value: item,
-        visible: true,
+        visible: false,
         position: null,
         matched: false
       })
@@ -87,29 +91,39 @@ export default{
       }
     })
     
-    const flipCard = (payload) => {
-      cardList.value[payload.position].visible = true
+    const flipCard = payload => {
+     
+      cardList.value[payload.position].visible = true;
+
       if(userSelection.value[0]){
+        if ((userSelection.value[0].position === payload.position) && (userSelection.value[0].faceValue === payload.faceValue) ){
+        return
+      }else{
         userSelection.value[1]=payload
       }
-      else{
+      } else {
         userSelection.value[0]=payload
       }
     }
     watch(userSelection, 
     currentValue => {
       if(currentValue.length === 2){
-        const cardOne = currentValue[0]
-        const cardTwo = currentValue[1]
+        const cardOne = currentValue[0];
+        const cardTwo = currentValue[1];
+
+        
 
         if(cardOne.faceValue === cardTwo.faceValue){
-            cardList.value[cardOne.position].matched=true
-            cardList.value[cardTwo.position].matched=true
+            cardList.value[cardOne.position].matched=true;
+            cardList.value[cardTwo.position].matched=true;
         }
         else{
 
-          cardList.value[cardOne.position].matched=false
-          cardList.value[cardTwo.position].matched=false
+          setTimeout(() => {
+            cardList.value[cardOne.position].visible=false;
+            cardList.value[cardTwo.position].visible=false;
+          },750)
+        
         }
 
 
@@ -125,7 +139,6 @@ export default{
       flipCard,
       userSelection,
       status,
-      remainingPairs,
       shuffleCards,
       restartGame
     }
@@ -140,20 +153,24 @@ font-family: Arial, Helvetica, sans-serif;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
 color: black;
-margin-top: 60px;
+
+}
+.tot{
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+position: absolute;
+padding: 10px;
+justify-content: center;
 }
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(4, 60px);
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
-  justify-content: center;
-  justify-content: center;
-  
- 
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+
 }
 
 </style>
-dsfsdfsd  fdsfsd
