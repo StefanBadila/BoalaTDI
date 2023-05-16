@@ -37,9 +37,8 @@ export default{
     })
 
     const remainingPairs = computed(() => {
-    const remainingCards= cardList.value.filter(
-    card => card.matched === false
-    ).length
+      const remainingCards= cardList.value.filter
+      (card => card.matched === false).length
       
     return remainingCards / 2
     })
@@ -76,10 +75,10 @@ export default{
         }
         else{
           status.value = 'Missmatch'
-        }
 
-        cardList.value[cardOne.position].visible = false
-        cardList.value[cardTwo.position].visible = false
+          cardList.value[cardOne.position].matched=false
+          cardList.value[cardTwo.position].matched=false
+        }
 
 
         userSelection.value.length = 0
@@ -93,7 +92,8 @@ export default{
       cardList,
       flipCard,
       userSelection,
-      status
+      status,
+      remainingPairs
     }
   }
 } 
