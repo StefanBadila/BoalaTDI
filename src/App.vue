@@ -144,12 +144,16 @@ margin-top: 60px;
 }
 
 .game-board{
-  display:grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(4, 60px);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
   justify-content: center;
+  justify-content: center;
+  
+ 
 }
 
 </style>
+dsfsdfsd  fdsfsd
