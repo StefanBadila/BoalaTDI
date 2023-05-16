@@ -100,6 +100,6 @@ margin-top: 60px;
   grid-template-rows: 100px 100px 100px 100px;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  justify-content: center;
+  justify-content: center;12312m
 }
 </style>
