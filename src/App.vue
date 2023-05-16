@@ -111,9 +111,6 @@
    grid-row-gap: 30px;
    justify-content: center;
    position: fixed;
-   top: 250px;
-   left: 900px;
-   width: 0px
+  
  }
  </style>
- dsfsdfsd  fdsfsd
