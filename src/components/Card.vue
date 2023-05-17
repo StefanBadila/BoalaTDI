@@ -63,8 +63,9 @@ setup(props, context) {
   }
 
   .card-face.is-back{
-    background-color: blue;
+    background-image: url('/imagini/cauciucuri-de-vara (2).png');
     color: white;
+
 
   }
   </style>

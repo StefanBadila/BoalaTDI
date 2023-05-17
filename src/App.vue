@@ -147,24 +147,40 @@ export default{
 </script>
 
 <style>
+
+html, body { 
+
+  
+  margin: 0;
+  padding: 0;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  padding: 10px;
+  justify-content: center;
+}
+
+h1 {
+  margin-top: 0;
+}
+
 #app {
 font-family: Arial, Helvetica, sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
-color: #2c3e30;
+color: #ffffff;
 margin-top: 60px;
 background-image: url('/imagini/motul.jpg');
+height: 100%;
+max-width: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
-.tot{
-top:50%;
-left:50%;
-transform: translate(-50%,-50%);
-position: absolute;
-padding: 10px;
-justify-content: center;
-}
+
 
 .game-board{
   display: grid;
