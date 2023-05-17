@@ -152,7 +152,9 @@ font-family: Arial, Helvetica, sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
-color: black;
+color: #2c3e30;
+margin-top: 60px;
+background-image: url('/imagini/motul.jpg');
 
 }
 .tot{
