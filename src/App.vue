@@ -1,5 +1,4 @@
 <template>
-  <div class=" tot">
  <h1>BoalaTDI</h1>
 <br>
 <section class="game-board">
@@ -14,10 +13,9 @@
 />
 </section>
 <br>
-<h2>{{status}}</h2>
+<h4>{{status}}</h4>
 <br>
 <button @click="restartGame">Amestec Tiganesc</button>
-</div>
 </template>
 
 <script>
@@ -172,6 +170,7 @@ html, body {
 
 h1 {
   margin-top: 0;
+  padding-top: 20%;
 }
 
 #app {
@@ -182,9 +181,7 @@ text-align: center;
 color: #ffffff;
 background-image: url('/imagini/anvelope-all-season.jpg');
 height: 100vh;
-
 }
-
 
 .game-board{
   display: grid;
@@ -192,7 +189,6 @@ height: 100vh;
   grid-template-rows: repeat(4, 120px);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
-
 }
 
 </style>
