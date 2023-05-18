@@ -1,5 +1,5 @@
 <template>
-  <br> 
+  <br> <br> <br>
   <h1 class="sr-only">Boala TDI</h1>
   <br>
   <div style="text-align: center;">
