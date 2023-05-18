@@ -10,7 +10,7 @@ props:{
         required: true
     },
     value: {
-        type: Number,
+        type: String,
         required: true
     },
 
@@ -36,7 +36,7 @@ setup(props, context) {
 <template>
 <div class="card" @click="selectCard">
         <div v-if="visible" class="card-face is-front">
-        {{ value }} --{{ position }} 
+        {{ value }}
         <img v-if="matched" src="/imagini/checkmark.svg" 
             class="icon-checkmark"/>
     </div> 
@@ -68,8 +68,8 @@ setup(props, context) {
 
 .icon-checkmark{
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 5px;
+        bottom: 5px;
 
 }
 

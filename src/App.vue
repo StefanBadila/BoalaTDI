@@ -66,7 +66,16 @@ export default{
 
     }
 
-    const cardItems = [1,2,3,4,5,6,7,8]
+    const cardItems = [
+    'vw',
+    'dacia',
+    'audi',
+    'bmw',
+    'mercedes',
+    'tesla',
+    'mazda',
+    'lambo'
+    ]
 
     cardItems.forEach(item => {
       cardList.value.push({
@@ -157,8 +166,8 @@ html, body {
   left:50%;
   transform: translate(-50%,-50%);
   position: absolute;
-  padding: 10px;
   justify-content: center;
+  background-image: url('/imagini/anvelope-all-season.jpg');
 }
 
 h1 {
@@ -171,13 +180,9 @@ font-family: Arial, Helvetica, sans-serif;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
 color: #ffffff;
-margin-top: 60px;
-background-image: url('/imagini/motul.jpg');
-height: 100%;
-max-width: 100%;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+background-image: url('/imagini/anvelope-all-season.jpg');
+height: 100vh;
+padding-top: 200px;
 }
 
 
