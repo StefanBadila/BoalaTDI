@@ -36,7 +36,8 @@ setup(props, context) {
 <template>
 <div class="card" @click="selectCard">
         <div v-if="visible" class="card-face is-front">
-        {{ value }}
+        <img :src="`/imagini/${value}.png`" 
+        :alt="value" />
         <img v-if="matched" src="/imagini/checkmark.svg" 
             class="icon-checkmark"/>
     </div> 
@@ -62,10 +63,9 @@ setup(props, context) {
   }
 
   .card-face.is-back {
-    background-image:  url('/imagini/cauciucuri-de-vara.png');
-    background-color: rgb(211, 117, 10);
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    background-image:  url('/imagini/cauciucuri-final.png');
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
   }
  

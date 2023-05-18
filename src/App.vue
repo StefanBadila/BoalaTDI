@@ -182,7 +182,7 @@ text-align: center;
 color: #ffffff;
 background-image: url('/imagini/anvelope-all-season.jpg');
 height: 100vh;
-padding-top: 200px;
+
 }
 
 
