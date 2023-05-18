@@ -3,7 +3,7 @@
   <h1 class="sr-only">Boala TDI</h1>
   <br>
   <div style="text-align: center;">
-    <img src="/imagini/Boala-TDI.png" alt="Boala-TDI ">
+    <img src="/imagini/Boala-TDI.png" alt="Boala-TDI" class="title">
   </div>
 <br>
 <section class="game-board">
@@ -225,6 +225,10 @@ font-weight: bold;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.title { 
+    padding-bottom: 5%;
 }
 
 
