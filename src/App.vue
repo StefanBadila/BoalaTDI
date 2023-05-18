@@ -1,4 +1,5 @@
 <template>
+  <div class=" tot">
  <h1>BoalaTDI</h1>
 <br>
 <section class="game-board">
@@ -12,8 +13,11 @@
   @select-card="flipCard"
 />
 </section>
+<br>
 <h2>{{status}}</h2>
-<button @click="shuffleCards">Amestec Tiganesc</button>
+<br>
+<button @click="restartGame">Amestec Tiganesc</button>
+</div>
 </template>
 
 <script>
@@ -49,41 +53,77 @@ export default{
       cardList.value = _.shuffle(cardList.value)
     }
 
-    for (let i = 0; i < 16; i++){
-      cardList.value.push({ 
-        value: i,
-        visible:true,
-        position: i,
-        matched: false
-    })
+    const restartGame = () => {
+      shuffleCards()
+      cardList.value = cardList.value.map((card, index) => {
+        return{
+          ...card,
+          matched: false,
+          position: index,
+          visible: false
+        }
+      })
+
     }
+
+    const cardItems = [1,2,3,4,5,6,7,8]
+
+    cardItems.forEach(item => {
+      cardList.value.push({
+        value: item,
+        visible: false,
+        position: null,
+        matched: false
+      })
+      cardList.value.push({
+        value: item,
+        visible: false,
+        position: null,
+        matched: false
+      })
+
+    })
+
+    cardList.value = cardList.value.map((card,index)=> {
+      return{
+        ...card,
+        position: index
+      }
+    })
     
-    const flipCard = (payload) => {
-      cardList.value[payload.position].visible = true
+    const flipCard = payload => {
+     
+      cardList.value[payload.position].visible = true;
+
       if(userSelection.value[0]){
+        if ((userSelection.value[0].position === payload.position) && (userSelection.value[0].faceValue === payload.faceValue) ){
+        return
+      }else{
         userSelection.value[1]=payload
       }
-      else{
+      } else {
         userSelection.value[0]=payload
       }
     }
     watch(userSelection, 
     currentValue => {
       if(currentValue.length === 2){
-        const cardOne = currentValue[0]
-        const cardTwo = currentValue[1]
+        const cardOne = currentValue[0];
+        const cardTwo = currentValue[1];
+
+        
 
         if(cardOne.faceValue === cardTwo.faceValue){
-            status.value = 'Matched'
-
-            cardList.value[cardOne.position].matched=true
-            cardList.value[cardTwo.position].matched=true
+            cardList.value[cardOne.position].matched=true;
+            cardList.value[cardTwo.position].matched=true;
         }
         else{
-          status.value = 'Missmatch'
 
-          cardList.value[cardOne.position].matched=false
-          cardList.value[cardTwo.position].matched=false
+          setTimeout(() => {
+            cardList.value[cardOne.position].visible=false;
+            cardList.value[cardTwo.position].visible=false;
+          },750)
+        
         }
 
 
@@ -99,34 +139,55 @@ export default{
       flipCard,
       userSelection,
       status,
-      remainingPairs,
-      shuffleCards
+      shuffleCards,
+      restartGame
     }
   }
 } 
 </script>
 
 <style>
+
+html, body { 
+
+  
+  margin: 0;
+  padding: 0;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  padding: 10px;
+  justify-content: center;
+}
+
+h1 {
+  margin-top: 0;
+}
+
 #app {
 font-family: Arial, Helvetica, sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
-color: black;
+color: #ffffff;
 margin-top: 60px;
+background-image: url('/imagini/motul.jpg');
+height: 100%;
+max-width: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
+
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(4, 60px);
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
-  justify-content: center;
-  justify-content: center;
-  
- 
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+
 }
 
 </style>
-dsfsdfsd  fdsfsd
