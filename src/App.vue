@@ -1,6 +1,10 @@
 <template>
-  <div class=" tot">
- <h1>BoalaTDI</h1>
+  <br> <br> <br>
+  <h1 class="sr-only">Boala TDI</h1>
+  <br>
+  <div style="text-align: center;">
+    <img src="/imagini/Boala-TDI.png" alt="Boala-TDI" class="title">
+  </div>
 <br>
 <section class="game-board">
   <Card 
@@ -14,10 +18,10 @@
 />
 </section>
 <br>
-<h2>{{status}}</h2>
+<h4>{{status}}</h4>
 <br>
-<button @click="restartGame">Amestec Tiganesc</button>
-</div>
+<button @click="restartGame" class="button"><img src="/imagini/restart.svg" 
+  alt="Restart Icon "/>Amestec Tiganesc</button>
 </template>
 
 <script>
@@ -66,7 +70,16 @@ export default{
 
     }
 
-    const cardItems = [1,2,3,4,5,6,7,8]
+    const cardItems = [
+    'vw',
+    'dacia',
+    'audi',
+    'bmw',
+    'mercedes',
+    'tesla',
+    'volvo',
+    'lambo'
+    ]
 
     cardItems.forEach(item => {
       cardList.value.push({
@@ -157,12 +170,13 @@ html, body {
   left:50%;
   transform: translate(-50%,-50%);
   position: absolute;
-  padding: 10px;
   justify-content: center;
+  background-image: url('/imagini/anvelope-all-season.jpg');
 }
 
 h1 {
   margin-top: 0;
+  padding-top: 20%;
 }
 
 #app {
@@ -171,15 +185,27 @@ font-family: Arial, Helvetica, sans-serif;
 -moz-osx-font-smotthing: grayscale;
 text-align: center;
 color: #ffffff;
-margin-top: 60px;
-background-image: url('/imagini/motul.jpg');
-height: 100%;
-max-width: 100%;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+background-image: url('/imagini/anvelope-all-season.jpg');
+height: 100vh;
 }
 
+.button{ 
+background-color: rgba(99, 56, 32, 0.616);
+color: white;
+padding: 0.75rem 0.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+margin-bottom: 20%;
+font-weight: bold;
+}
+
+
+.button img{
+  padding-right: 5px;
+
+}
 
 .game-board{
   display: grid;
@@ -187,7 +213,23 @@ background-size: cover;
   grid-template-rows: repeat(4, 120px);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
-
 }
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.title { 
+    padding-bottom: 5%;
+}
+
 
 </style>
