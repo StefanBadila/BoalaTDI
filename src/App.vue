@@ -1,12 +1,10 @@
 <template>
+  <br> 
+  <h1 class="sr-only">Boala TDI</h1>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
- <img src="/imagini/Boala-TDI.png" 
- alt="Boala-TDI "/>
+  <div style="text-align: center;">
+    <img src="/imagini/Boala-TDI.png" alt="Boala-TDI ">
+  </div>
 <br>
 <section class="game-board">
   <Card 
@@ -22,7 +20,8 @@
 <br>
 <h4>{{status}}</h4>
 <br>
-<button @click="restartGame">Amestec Tiganesc</button>
+<button @click="restartGame" class="button"><img src="/imagini/restart.svg" 
+  alt="Restart Icon "/>Amestec Tiganesc</button>
 </template>
 
 <script>
@@ -190,6 +189,24 @@ background-image: url('/imagini/anvelope-all-season.jpg');
 height: 100vh;
 }
 
+.button{ 
+background-color: rgba(99, 56, 32, 0.616);
+color: white;
+padding: 0.75rem 0.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+margin-bottom: 20%;
+font-weight: bold;
+}
+
+
+.button img{
+  padding-right: 5px;
+
+}
+
 .game-board{
   display: grid;
   grid-template-columns: repeat(4, 120px);
@@ -197,5 +214,18 @@ height: 100vh;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
 }
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 
 </style>
