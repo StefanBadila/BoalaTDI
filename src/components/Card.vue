@@ -38,15 +38,12 @@ setup(props, context) {
         <div v-if="visible" class="card-face is-front">
         {{ value }} --{{ position }} - {{ matched }}
     </div> 
-    <div v-else class="card-face is-back">
-     Back
-    </div>
+    <div v-else class="card-face is-back"></div>
 </div>
 </template>
 
 <style>
 .card {
-    border: 5px solid #ccc;
     position: relative;
   }
 
@@ -54,7 +51,7 @@ setup(props, context) {
     width: 100%;
     height: 100%;
     position: absolute;
-    
+    border-radius: 10px;
   }
 
   .card-face.is-front {
@@ -63,7 +60,7 @@ setup(props, context) {
   }
 
   .card-face.is-back{
-    background-image: url('/imagini/cauciucuri-de-vara (2).png');
+    background-image: url('/imagini/carduri-spate.png');
     color: white;
 
 

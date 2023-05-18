@@ -178,16 +178,15 @@ max-width: 100%;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-
 }
 
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
 
 }
 
