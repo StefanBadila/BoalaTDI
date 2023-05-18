@@ -61,10 +61,14 @@ setup(props, context) {
     color: white;
   }
 
-  .card-face.is-back{
-    background-image: url('/imagini/carduri-spate.png');
+  .card-face.is-back {
+    background-image:  url('/imagini/cauciucuri-de-vara.png');
+    background-color: rgb(211, 117, 10);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
     color: white;
   }
+ 
 
 .icon-checkmark{
         position: absolute;
