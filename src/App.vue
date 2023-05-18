@@ -6,17 +6,17 @@
     <img src="/imagini/Boala-TDI.png" alt="Boala-TDI" class="title">
   </div>
 <br>
-<section class="game-board">
+<transition-group tag="section" class="game-board" name="shuffle-card-move">
   <Card 
-  v-for="(card,index) in cardList" 
-  :key="'card-${index}'"
+  v-for="card in cardList" 
+  :key="`${card.value}-${card.variant}`"
   :matched="card.matched"
   :value="card.value"
   :visible="card.visible"
   :position="card.position"
   @select-card="flipCard"
 />
-</section>
+</transition-group>
 <br>
 <h4>{{status}}</h4>
 <br>
@@ -53,12 +53,9 @@ export default{
     return remainingCards / 2
     })
 
-    const shuffleCards = () => {
-      cardList.value = _.shuffle(cardList.value)
-    }
 
     const restartGame = () => {
-      shuffleCards()
+      cardList.value = _.shuffle(cardList.value)
       cardList.value = cardList.value.map((card, index) => {
         return{
           ...card,
@@ -84,12 +81,14 @@ export default{
     cardItems.forEach(item => {
       cardList.value.push({
         value: item,
+        variant: 1,
         visible: false,
         position: null,
         matched: false
       })
       cardList.value.push({
         value: item,
+        variant: 2,
         visible: false,
         position: null,
         matched: false
@@ -152,7 +151,6 @@ export default{
       flipCard,
       userSelection,
       status,
-      shuffleCards,
       restartGame
     }
   }
@@ -231,5 +229,8 @@ font-weight: bold;
     padding-bottom: 5%;
 }
 
+.shuffle-card-move{
+  transition:transform 0.8s ease-in;
+}
 
 </style>
