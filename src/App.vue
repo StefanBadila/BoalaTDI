@@ -1,5 +1,12 @@
 <template>
- <h1>BoalaTDI</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+ <img src="/imagini/Boala-TDI.png" 
+ alt="Boala-TDI "/>
 <br>
 <section class="game-board">
   <Card 
@@ -71,7 +78,7 @@ export default{
     'bmw',
     'mercedes',
     'tesla',
-    'mazda',
+    'volvo',
     'lambo'
     ]
 

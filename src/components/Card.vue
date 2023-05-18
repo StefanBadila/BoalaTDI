@@ -77,6 +77,4 @@ setup(props, context) {
 
 }
 
-
-
   </style>
