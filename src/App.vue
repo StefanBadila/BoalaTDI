@@ -245,13 +245,13 @@ border-radius: 15%;
 }
 
 .title { 
-    padding: 1.4%;
+    padding: 2.5%;
 }
 
 .shuffle-card-move{
   transition:transform 0.8s ease-in;
 }
 .textjos{
-  padding: 3%;
+  padding: 0.5%;
 }
 </style>
