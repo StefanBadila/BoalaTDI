@@ -1,4 +1,5 @@
 <script>
+import {computed} from 'vue'
 export default{
 props:{
     matched: {
@@ -10,7 +11,7 @@ props:{
         required: true
     },
     value: {
-        type: Number,
+        type: String,
         required: true
     },
 
@@ -20,6 +21,12 @@ visible: {
     }
 },
 setup(props, context) {
+    const flippedStyles = computed(() => {
+        if(props.visible) {
+            return 'is-flipped'
+        }
+    })
+
     const selectCard = () => {
         context.emit('select-card', {
             position: props.position,
@@ -27,26 +34,35 @@ setup(props, context) {
         })
     }
     return {
+        flippedStyles,
         selectCard
+        
     }
 }
 }
 </script>
 
 <template>
-<div class="card" @click="selectCard">
-        <div v-if="visible" class="card-face is-front">
-        {{ value }} --{{ position }} 
+<div class="card" :class="flippedStyles" @click="selectCard">
+        <div class="card-face is-front">
+        <img :src="`/imagini/${value}.png`" 
+        :alt="value" />
         <img v-if="matched" src="/imagini/checkmark.svg" 
             class="icon-checkmark"/>
     </div> 
-    <div v-else class="card-face is-back"></div>
+    <div class="card-face is-back"></div>
 </div>
 </template>
 
 <style>
 .card {
     position: relative;
+    transition: 0.5s transform ease-in;
+    transform-style: preserve-3d;
+  }
+ 
+  .card.is-flipped{
+    transform: rotateY(180deg)
   }
 
   .card-face {
@@ -54,25 +70,32 @@ setup(props, context) {
     height: 100%;
     position: absolute;
     border-radius: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    backface-visibility: hidden;
   }
 
   .card-face.is-front {
     background-image: url('/imagini/carduri-fata.png');
     color: white;
+    transform: rotateY(180deg);
   }
 
-  .card-face.is-back{
-    background-image: url('/imagini/carduri-spate.png');
+  .card-face.is-back {
+    background-image:  url('/imagini/cauciucuri-final.png');
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
+   
   }
+ 
 
 .icon-checkmark{
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 5px;
+        bottom: 5px;
 
 }
-
-
 
   </style>
