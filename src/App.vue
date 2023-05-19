@@ -15,8 +15,6 @@
 />
 </transition-group>
 <br>
-<h2 class="textjos">{{status}}</h2>
-<br>
 <button v-if="newPlayer" @click="startGame" class="button"><img src="/imagini/restart.svg" 
   alt="Restart Icon "/>Incepe jocul</button>
 <button v-else @click="restartGame" class="button"><img src="/imagini/restart.svg" 
@@ -187,10 +185,6 @@ html, body {
   background-image: url('/imagini/anvelope-all-season.jpg');
 }
 
-h1 {
-  margin-top: 0;
-  padding-top: 20%;
-}
 
 #app {
 font-family: Arial, Helvetica, sans-serif;
@@ -220,7 +214,6 @@ border-radius: 15%;
 
 .button img{
   padding-right: 5px;
-
 }
 
 .game-board{
@@ -229,7 +222,7 @@ border-radius: 15%;
   grid-template-rows: repeat(4, 120px);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
-  
+  padding-bottom: 3%;
 }
 
 
@@ -245,13 +238,11 @@ border-radius: 15%;
 }
 
 .title { 
-    padding: 2.5%;
+    padding-top: 5%;
+    padding-bottom: 2%;
 }
 
 .shuffle-card-move{
   transition:transform 0.8s ease-in;
-}
-.textjos{
-  padding: 0.5%;
 }
 </style>
