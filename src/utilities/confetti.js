@@ -7,8 +7,7 @@ export const launchConfetti = () =>{
     ticks: 50,
     gravity: 0,
     decay: 0.94,
-    startVelocity: 30,
-    scalar: 0.8,
+    startVelocity: 25,
     origin: {
       x: 0.2,
       y: 0.5
