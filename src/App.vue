@@ -27,6 +27,10 @@ import { computed , ref, watch } from 'vue'
 import {launchConfetti} from './utilities/confetti'
 import Card from './components/Card.vue'
 
+const MyPromise = require('some-promise-lib');
+const confetti = require('canvas-confetti');
+confetti.Promise = MyPromise;
+
 export default{
   name: 'App',
   components:{
@@ -43,13 +47,6 @@ export default{
       restartGame()
     }
 
-    const status= computed (() => {
-      if(remainingPairs.value === 0){
-        return `Esti un adevarat cunoscator`     }
-         else {
-         return `Perechi ramase: ${remainingPairs.value}`
-      }
-    })
 
     const remainingPairs = computed(() => {
       const remainingCards= cardList.value.filter
@@ -161,7 +158,6 @@ export default{
       cardList,
       flipCard,
       userSelection,
-      status,
       restartGame,
       newPlayer,
       startGame
