@@ -27,9 +27,6 @@ import { computed , ref, watch } from 'vue'
 import {launchConfetti} from './utilities/confetti'
 import Card from './components/Card.vue'
 
-const MyPromise = require('some-promise-lib');
-const confetti = require('canvas-confetti');
-confetti.Promise = MyPromise;
 
 export default{
   name: 'App',
