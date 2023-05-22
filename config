@@ -1,1 +1,1 @@
-npm install --save canvas-confetti
+netlify dev npm install --save canvas-confetti
