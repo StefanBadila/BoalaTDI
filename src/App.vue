@@ -1,4 +1,5 @@
 <template>
+<h1 class="sr-only">Boala TDI</h1>
   <div class='title' style="text-align: center;">
     <img src="/imagini/Boala-TDI.png" alt="Boala-TDI" class="title">
   </div>
