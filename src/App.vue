@@ -1,8 +1,5 @@
 <template>
-  <br> <br> <br>
-  <h1 class="sr-only">Boala TDI</h1>
-  <br>
-  <div style="text-align: center;">
+  <div class='title' style="text-align: center;">
     <img src="/imagini/Boala-TDI.png" alt="Boala-TDI" class="title">
   </div>
 <br>
@@ -18,16 +15,18 @@
 />
 </transition-group>
 <br>
-<h4>{{status}}</h4>
-<br>
-<button @click="restartGame" class="button"><img src="/imagini/restart.svg" 
-  alt="Restart Icon "/>Amestec Tiganesc</button>
+<button v-if="newPlayer" @click="startGame" class="button"><img src="/imagini/restart.svg" 
+  alt="Restart Icon "/>Incepe jocul</button>
+<button v-else @click="restartGame" class="button"><img src="/imagini/restart.svg" 
+  alt="Restart Icon "/>Reseteaza</button>
 </template>
 
 <script>
 import _ from 'lodash'
 import { computed , ref, watch } from 'vue'
+import {launchConfetti} from './utilities/confetti'
 import Card from './components/Card.vue'
+
 
 export default{
   name: 'App',
@@ -37,14 +36,14 @@ export default{
   setup () {
     const cardList = ref([])
     const userSelection =ref([])
+    const newPlayer = ref(true)
 
-    const status= computed (() => {
-      if(remainingPairs.value === 0){
-        return `Player wins!`     }
-         else {
-         return `Remaining Pairs: ${remainingPairs.value}`
-      }
-    })
+    const startGame = () => {
+
+      newPlayer.value= false
+      restartGame()
+    }
+
 
     const remainingPairs = computed(() => {
       const remainingCards= cardList.value.filter
@@ -82,7 +81,7 @@ export default{
       cardList.value.push({
         value: item,
         variant: 1,
-        visible: false,
+        visible: true,
         position: null,
         matched: false
       })
@@ -117,6 +116,12 @@ export default{
         userSelection.value[0]=payload
       }
     }
+
+    watch(remainingPairs, currentValue =>{
+      if(currentValue === 0)
+        launchConfetti()
+    })
+
     watch(userSelection, 
     currentValue => {
       if(currentValue.length === 2){
@@ -150,8 +155,9 @@ export default{
       cardList,
       flipCard,
       userSelection,
-      status,
-      restartGame
+      restartGame,
+      newPlayer,
+      startGame
     }
   }
 } 
@@ -172,10 +178,6 @@ html, body {
   background-image: url('/imagini/anvelope-all-season.jpg');
 }
 
-h1 {
-  margin-top: 0;
-  padding-top: 20%;
-}
 
 #app {
 font-family: Arial, Helvetica, sans-serif;
@@ -188,7 +190,7 @@ height: 100vh;
 }
 
 .button{ 
-background-color: rgba(99, 56, 32, 0.616);
+background-color: rgba(13, 197, 194, 0.457);
 color: white;
 padding: 0.75rem 0.5rem;
 display: flex;
@@ -197,12 +199,14 @@ justify-content: center;
 margin: 0 auto;
 margin-bottom: 20%;
 font-weight: bold;
+font-size: 1.2rem;
+border: 0;
+border-radius: 15%;
 }
 
 
 .button img{
   padding-right: 5px;
-
 }
 
 .game-board{
@@ -211,6 +215,7 @@ font-weight: bold;
   grid-template-rows: repeat(4, 120px);
   grid-column-gap: 24px;
   grid-row-gap: 24px;
+  padding-bottom: 3%;
 }
 
 
@@ -226,11 +231,11 @@ font-weight: bold;
 }
 
 .title { 
-    padding-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 2%;
 }
 
 .shuffle-card-move{
   transition:transform 0.8s ease-in;
 }
-
 </style>
