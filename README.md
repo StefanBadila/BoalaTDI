@@ -1,6 +1,6 @@
 # Memory Game
 
-The Memory Game is an engaging and educational game designed to improve and test your memory. It features a fun and interactive layout, using images of vehicle brands to make the game visually appealing. The game logic is written in Java, while HTML and CSS are used for the layout and design. Vue.js is utilized for dynamic and responsive user interactions.
+The Memory Game is an engaging and educational game designed to improve and test your memory. It features a fun and interactive layout, using images of vehicle brands to make the game visually appealing. HTML and CSS are used for the layout and design, while Vue.js is utilized for dynamic and responsive user interactions.
 
 ## Demo
 
